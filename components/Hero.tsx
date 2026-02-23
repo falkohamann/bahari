@@ -31,8 +31,13 @@ const Hero: React.FC = () => {
           }}
         >
           <div
-            className="absolute inset-0 bg-[#f4f1eb] bg-[url('images/title.png')] bg-contain bg-no-repeat bg-center"
-            style={{ opacity: 0.9, filter: 'blur(0px)', transform: 'none' }}
+            className="absolute inset-0 bg-[#f4f1eb] bg-contain bg-no-repeat bg-center"
+            style={{
+              backgroundImage: `url(${import.meta.env.BASE_URL}images/title.png)`,
+              opacity: 0.9,
+              filter: 'blur(0px)',
+              transform: 'none',
+            }}
           />
         </motion.div>
       </div>
