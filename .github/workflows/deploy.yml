@@ -35,6 +35,6 @@ jobs:
                   password: ${{ secrets.FTP_PASSWORD }}
                   port: 21
                   protocol: ftp
-                  server-dir: /dev/
+                  server-dir: /www/htdocs/w0213e45/bahari-kosmetik.de/dev/
                   local-dir: ./dist/
                   dangerous-clean-slate: true
