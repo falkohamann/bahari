@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bahari Kosmetikstudio | Äußerlich strahlen, innerlich leuchten</title>
+    <meta name="description" content="Bahari Kosmetikstudio in Dippoldiswalde. Entspannung in afrikanischem Ambiente und Balance durch asiatische Gesichtsmassage.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'bahari-orange': '#D97746',
+              'bahari-brown': '#5C4033',
+              'bahari-sand': '#F3E5D8',
+              'bahari-green': '#8FA893',
+              'bahari-stone': '#F5F1EB',
+              'bahari-dark': '#2D2A26',
+            },
+            fontFamily: {
+              'script': ['cursive'],
+              'serif': ['Georgia', 'Times New Roman', 'serif'],
+              'sans': ['Arial', 'Helvetica', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html {
+        scroll-padding-top: 5rem;
+      }
+      .font-script { font-family: cursive; }
+      .font-serif { font-family: Georgia, 'Times New Roman', serif; }
+      .font-sans { font-family: Arial, Helvetica, sans-serif; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.564.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.34.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
