@@ -32,7 +32,7 @@ jobs:
                   password: ${{ secrets.FTP_PASSWORD }}
                   port: 21
                   protocol: ftp
-                  server-dir: /www/htdocs/w0213e45/bahari-kosmetik.de/dev/
+                  server-dir: /bahari-kosmetik.de/dev/
                   local-dir: ./dist/
                   dangerous-clean-slate: true
                   timeout: 300000
