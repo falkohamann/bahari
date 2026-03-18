@@ -86,7 +86,7 @@ const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose }) => {
                     <h3 className="font-bold text-gray-900 text-lg mb-2">Kontakt</h3>
                     <p>
                       Telefon: {CONTACT_INFO.phone}<br />
-                      E-Mail: info@bahari-kosmetik.de
+                      E-Mail: {CONTACT_INFO.email}
                     </p>
                   </section>
 

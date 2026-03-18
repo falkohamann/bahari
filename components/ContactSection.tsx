@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CONTACT_INFO } from '../constants';
 
@@ -41,6 +41,9 @@ const panelVariants = {
 };
 
 const ContactSection: React.FC = () => {
+  const formspreeId = import.meta.env.VITE_FORMSPREE_ID;
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
   return (
     <motion.section
       id="kontakt"
@@ -57,7 +60,7 @@ const ContactSection: React.FC = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          
+
           {/* Left Column: Info */}
           <motion.div className="space-y-10" variants={panelVariants}>
             <div className="bg-white p-8 rounded-2xl shadow-sm">
@@ -70,7 +73,14 @@ const ContactSection: React.FC = () => {
                         <div>
                         <h5 className="font-semibold text-bahari-dark">Adresse</h5>
                         <p className="text-gray-600 font-sans">{CONTACT_INFO.address}<br/>{CONTACT_INFO.zipCity}</p>
-                        <span className="inline-block mt-2 text-sm text-bahari-orange">Route planen &rarr;</span>
+                        <a
+                          href="https://www.google.com/maps/search/?api=1&query=Dresdner+Straße+149+Dippoldiswalde"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block mt-2 text-sm text-bahari-orange hover:underline"
+                        >
+                          Route planen →
+                        </a>
                         </div>
                     </div>
 
@@ -87,6 +97,21 @@ const ContactSection: React.FC = () => {
 
                     <div className="flex items-start gap-4">
                         <div className="p-3 bg-bahari-orange/10 rounded-full shrink-0">
+                        <SendIcon size={20} className="text-bahari-orange" />
+                        </div>
+                        <div>
+                        <h5 className="font-semibold text-bahari-dark">E-Mail</h5>
+                        <a
+                          href={`mailto:${CONTACT_INFO.email}`}
+                          className="text-gray-600 font-sans hover:text-bahari-orange transition-colors"
+                        >
+                          {CONTACT_INFO.email}
+                        </a>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                        <div className="p-3 bg-bahari-orange/10 rounded-full shrink-0">
                         <ClockIcon className="text-bahari-orange w-5 h-5" />
                         </div>
                         <div>
@@ -96,13 +121,25 @@ const ContactSection: React.FC = () => {
                     </div>
                 </div>
             </div>
-            
-            {/* Small map preview */}
-            <div className="h-64 rounded-2xl overflow-hidden shadow-sm relative bg-gray-200">
-                 {/* Decorative placeholder */}
-                 <div className="absolute inset-0 flex items-center justify-center bg-bahari-brown/5">
-                    <span className="text-bahari-brown/40 font-serif text-xl">Karte wird geladen...</span>
-                 </div>
+
+            {/* Address card replacing map placeholder */}
+            <div className="bg-bahari-stone rounded-2xl p-6 flex flex-col gap-4">
+              <div className="flex items-start gap-3">
+                <MapPinIcon className="text-bahari-orange w-5 h-5 mt-1 shrink-0" />
+                <div>
+                  <p className="font-semibold text-bahari-dark">{CONTACT_INFO.address}</p>
+                  <p className="text-gray-600 text-sm">{CONTACT_INFO.zipCity}</p>
+                </div>
+              </div>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Dresdner+Straße+149+Dippoldiswalde"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-bahari-brown text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-bahari-orange transition-colors self-start"
+              >
+                <MapPinIcon className="w-4 h-4" />
+                In Google Maps öffnen →
+              </a>
             </div>
           </motion.div>
 
@@ -110,34 +147,69 @@ const ContactSection: React.FC = () => {
           <motion.div className="bg-white p-8 md:p-10 rounded-2xl shadow-lg border-t-4 border-bahari-brown" variants={panelVariants}>
             <h4 className="text-2xl font-serif text-bahari-brown mb-2">Schreiben Sie uns</h4>
             <p className="text-gray-600 mb-8">Haben Sie Fragen oder möchten Sie einen Termin anfragen? Nutzen Sie gerne unser Formular.</p>
-            
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+
+            {!formspreeId ? (
+              <div className="py-8 text-center text-gray-600">
+                <p>Bitte kontaktieren Sie uns per Telefon:</p>
+                <p className="font-semibold text-bahari-brown mt-2">{CONTACT_INFO.phone}</p>
+              </div>
+            ) : status === 'success' ? (
+              <div className="py-8 text-center">
+                <p className="text-2xl mb-2">✓</p>
+                <p className="text-bahari-brown font-serif text-xl mb-2">Vielen Dank!</p>
+                <p className="text-gray-600">Wir melden uns bald.</p>
+              </div>
+            ) : (
+              <form className="space-y-6" onSubmit={async (e) => {
+                e.preventDefault();
+                setStatus('loading');
+                try {
+                  const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+                    method: 'POST',
+                    body: new FormData(e.currentTarget as HTMLFormElement),
+                    headers: { Accept: 'application/json' },
+                    signal: AbortSignal.timeout(15000),
+                  });
+                  setStatus(res.ok ? 'success' : 'error');
+                } catch {
+                  setStatus('error');
+                }
+              }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                        <input type="text" id="name" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-bahari-orange focus:ring-1 focus:ring-bahari-orange outline-none transition-colors" placeholder="Ihr Name" />
+                        <input type="text" id="name" name="name" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-bahari-orange focus:ring-1 focus:ring-bahari-orange outline-none transition-colors" placeholder="Ihr Name" />
                     </div>
                     <div>
                         <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Telefon</label>
-                        <input type="tel" id="phone" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-bahari-orange focus:ring-1 focus:ring-bahari-orange outline-none transition-colors" placeholder="Ihre Nummer" />
+                        <input type="tel" id="phone" name="phone" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-bahari-orange focus:ring-1 focus:ring-bahari-orange outline-none transition-colors" placeholder="Ihre Nummer" />
                     </div>
                 </div>
-                
+
                 <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">E-Mail</label>
-                    <input type="email" id="email" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-bahari-orange focus:ring-1 focus:ring-bahari-orange outline-none transition-colors" placeholder="ihre.email@beispiel.de" />
+                    <input type="email" id="email" name="email" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-bahari-orange focus:ring-1 focus:ring-bahari-orange outline-none transition-colors" placeholder="ihre.email@beispiel.de" />
                 </div>
 
                 <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Nachricht</label>
-                    <textarea id="message" rows={4} className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-bahari-orange focus:ring-1 focus:ring-bahari-orange outline-none transition-colors" placeholder="Wie können wir Ihnen helfen?"></textarea>
+                    <textarea id="message" name="message" rows={4} className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-bahari-orange focus:ring-1 focus:ring-bahari-orange outline-none transition-colors" placeholder="Wie können wir Ihnen helfen?"></textarea>
                 </div>
 
-                <button type="submit" className="w-full bg-bahari-brown text-white py-3 rounded-lg font-medium hover:bg-bahari-orange transition-colors flex items-center justify-center gap-2">
-                    <SendIcon size={18} />
-                    Nachricht senden
+                {status === 'error' && (
+                  <p className="text-red-600 text-sm">Etwas ist schiefgelaufen. Bitte rufen Sie uns an.</p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className="w-full bg-bahari-brown text-white py-3 rounded-lg font-medium hover:bg-bahari-orange transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  <SendIcon size={18} />
+                  {status === 'loading' ? 'Wird gesendet...' : 'Nachricht senden'}
                 </button>
-            </form>
+              </form>
+            )}
           </motion.div>
 
         </div>

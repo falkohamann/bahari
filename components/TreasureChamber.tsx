@@ -78,8 +78,8 @@ const TreasureChamber: React.FC = () => {
             
             <motion.div className="md:w-1/2 relative" variants={itemVariants}>
                 <div className="grid grid-cols-2 gap-4">
-                    <img src="https://picsum.photos/400/500?random=10" alt="Accessoires" className="rounded-lg shadow-lg transform translate-y-8" />
-                    <img src="https://picsum.photos/400/500?random=11" alt="Schmuck" className="rounded-lg shadow-lg transform -translate-y-8" />
+                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=80" alt="Accessoires" className="rounded-lg shadow-lg transform translate-y-8" />
+                    <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=400&q=80" alt="Schmuck" className="rounded-lg shadow-lg transform -translate-y-8" />
                 </div>
                 {/* Decorative circle - adjusted color for light background */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-4 border-bahari-orange/20 rounded-full"></div>
