@@ -1,6 +1,5 @@
 name: Deploy Bahari
 
-# WICHTIG: Die Zeilen unter 'on:' muessen eingerueckt sein
 on:
     push:
         branches:
@@ -21,14 +20,12 @@ jobs:
                   cache-dependency-path: "./package-lock.json"
 
             - name: Install dependencies & Build
-              env:
-                  SITE_URL: ${{ secrets.SITE_URL }}
               run: |
                   npm ci
                   npm run build
 
             - name: FTP Deploy
-              uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+              uses: SamKirkland/FTP-Deploy-Action@v4.3.5
               with:
                   server: ${{ secrets.FTP_SERVER }}
                   username: ${{ secrets.FTP_USERNAME }}
@@ -38,3 +35,5 @@ jobs:
                   server-dir: /www/htdocs/w0213e45/bahari-kosmetik.de/dev/
                   local-dir: ./dist/
                   dangerous-clean-slate: true
+                  timeout: 300000
+                  log-level: verbose
