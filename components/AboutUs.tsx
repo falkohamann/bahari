@@ -6,9 +6,6 @@ const SparklesIcon = ({ className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M9 3v4"/><path d="M3 9h4"/><path d="M3 5h4"/></svg>
 );
 
-const UserIcon = ({ size = 24, className = "" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-);
 
 const HeartIcon = ({ className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
@@ -67,9 +64,9 @@ const AboutUs: React.FC = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {/* Feature 1: Products */}
-          <motion.div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border-t-4 border-blue-400" variants={itemVariants}>
-            <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mb-6">
-              <SparklesIcon className="text-blue-500 w-6 h-6" />
+          <motion.div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border-t-4 border-bahari-orange" variants={itemVariants}>
+            <div className="w-12 h-12 bg-bahari-orange/10 rounded-full flex items-center justify-center mb-6">
+              <SparklesIcon className="text-bahari-orange w-6 h-6" />
             </div>
             <h4 className="text-xl font-serif text-bahari-brown mb-3">Unsere Produkte</h4>
             <p className="text-gray-600 mb-4">
@@ -109,10 +106,11 @@ const AboutUs: React.FC = () => {
             {/* Team Member 1 (Owner) */}
             <motion.div className="group" variants={itemVariants}>
               <div className="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg bg-gray-200">
-                 {/* Placeholder for owner image */}
-                 <div className="absolute inset-0 flex items-center justify-center text-gray-400 bg-gray-100">
-                    <UserIcon size={64} />
-                 </div>
+                 <img
+                   src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80"
+                   alt="Nadin Kästner"
+                   className="absolute inset-0 w-full h-full object-cover"
+                 />
                  <div className="absolute inset-0 bg-bahari-brown/10 group-hover:bg-transparent transition-colors"></div>
               </div>
               <h4 className="text-xl font-serif text-bahari-dark">{CONTACT_INFO.owner.replace('Inh. ', '')}</h4>
@@ -122,10 +120,11 @@ const AboutUs: React.FC = () => {
             {/* Team Member 2 */}
             <motion.div className="group" variants={itemVariants}>
               <div className="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg bg-gray-200">
-                 {/* Placeholder for employee image */}
-                 <div className="absolute inset-0 flex items-center justify-center text-gray-400 bg-gray-100">
-                    <UserIcon size={64} />
-                 </div>
+                 <img
+                   src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80"
+                   alt="Mitarbeiterin"
+                   className="absolute inset-0 w-full h-full object-cover"
+                 />
                  <div className="absolute inset-0 bg-bahari-brown/10 group-hover:bg-transparent transition-colors"></div>
               </div>
               <h4 className="text-xl font-serif text-bahari-dark">Mitarbeiterin</h4>
@@ -135,10 +134,11 @@ const AboutUs: React.FC = () => {
             {/* Team Member 3 */}
             <motion.div className="group" variants={itemVariants}>
               <div className="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg bg-gray-200">
-                 {/* Placeholder for employee image */}
-                 <div className="absolute inset-0 flex items-center justify-center text-gray-400 bg-gray-100">
-                    <UserIcon size={64} />
-                 </div>
+                 <img
+                   src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80"
+                   alt="Mitarbeiterin"
+                   className="absolute inset-0 w-full h-full object-cover"
+                 />
                  <div className="absolute inset-0 bg-bahari-brown/10 group-hover:bg-transparent transition-colors"></div>
               </div>
               <h4 className="text-xl font-serif text-bahari-dark">Mitarbeiterin</h4>
