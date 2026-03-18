@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
+import Philosophy from './components/Philosophy';
 import AboutUs from './components/AboutUs';
 import ServiceMenu from './components/ServiceMenu';
 import TreasureChamber from './components/TreasureChamber';
@@ -17,6 +18,7 @@ const App: React.FC = () => {
       <Navigation />
       <main>
         <Hero />
+        <Philosophy />
         <ServiceMenu />
         <TreasureChamber />
         <AboutUs />
