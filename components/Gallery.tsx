@@ -26,12 +26,12 @@ const itemVariants = {
 const Gallery: React.FC = () => {
   // Placeholder images
   const images = [
-    "https://picsum.photos/600/400?random=20",
-    "https://picsum.photos/600/800?random=21",
-    "https://picsum.photos/600/600?random=22",
-    "https://picsum.photos/600/400?random=23",
-    "https://picsum.photos/600/800?random=24",
-    "https://picsum.photos/600/600?random=25"
+    "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80",
+    "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=80",
+    "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
+    "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=80",
+    "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80",
+    "https://images.unsplash.com/photo-1583416750470-965b2707b355?w=600&q=80"
   ];
 
   return (

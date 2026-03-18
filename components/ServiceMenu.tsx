@@ -49,7 +49,7 @@ const ServiceMenu: React.FC = () => {
           <motion.div className="mb-24 relative rounded-3xl overflow-hidden bg-bahari-green/5 border border-bahari-green/10 p-8 md:p-12 lg:flex lg:gap-12 items-center" variants={cardVariants}>
             <div className="lg:w-1/2 mb-8 lg:mb-0 relative">
                <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-                 <img src="https://picsum.photos/800/600?grayscale&blur=2" alt="Zen Stone Atmosphere" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                 <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&q=80" alt="Zen Stone Atmosphere" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
                  <div className="absolute inset-0 bg-bahari-green/20 mix-blend-multiply"></div>
                </div>
                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg">
