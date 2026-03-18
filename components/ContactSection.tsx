@@ -168,6 +168,7 @@ const ContactSection: React.FC = () => {
                     method: 'POST',
                     body: new FormData(e.currentTarget as HTMLFormElement),
                     headers: { Accept: 'application/json' },
+                    signal: AbortSignal.timeout(15000),
                   });
                   setStatus(res.ok ? 'success' : 'error');
                 } catch {
