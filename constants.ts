@@ -6,7 +6,8 @@ export const CONTACT_INFO: ContactInfo = {
   address: "Dresdner Straße 149",
   zipCity: "01744 Dippoldiswalde OT Obercarsdorf",
   phone: "035052 189960",
-  note: "Termine nach Vereinbarung"
+  note: "Termine nach Vereinbarung",
+  email: "info@bahari-kosmetik.de"
 };
 
 export const SERVICES: ServiceCategory[] = [

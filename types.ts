@@ -19,4 +19,5 @@ export interface ContactInfo {
   zipCity: string;
   phone: string;
   note: string;
+  email: string;
 }
