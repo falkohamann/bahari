@@ -7,9 +7,9 @@ const sectionVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.5,
       ease: [0.22, 1, 0.36, 1],
-      staggerChildren: 0.06,
+      staggerChildren: 0.03,
     },
   },
 };
@@ -19,7 +19,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -40,7 +40,7 @@ const Gallery: React.FC = () => {
       className="py-20 bg-bahari-stone"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.05 }}
       variants={sectionVariants}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

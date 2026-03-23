@@ -10,82 +10,84 @@ const LeafIcon = ({ className = "" }) => (
 );
 
 const sectionVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.8,
-            ease: [0.22, 1, 0.36, 1],
-            staggerChildren: 0.08,
-        },
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.04,
     },
+  },
 };
 
 const itemVariants = {
-    hidden: { opacity: 0, y: 16 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-    },
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
 const TreasureChamber: React.FC = () => {
   return (
-        <motion.section
-            id="schatzkammer"
-            className="py-20 bg-bahari-stone relative"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={sectionVariants}
-        >
-       {/* Background pattern - subtle texture for light background */}
-       <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply"></div>
+    <motion.section
+      id="schatzkammer"
+      className="py-20 bg-bahari-stone relative"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.05 }}
+      variants={sectionVariants}
+    >
+      {/* Background texture — satisfies no-flat-background rule */}
+      <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply"></div>
 
-       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12">
-            <motion.div className="md:w-1/2" variants={itemVariants}>
-                <h2 className="text-bahari-orange font-sans text-sm font-bold uppercase tracking-widest mb-2">Boutique</h2>
-                <h3 className="text-4xl md:text-5xl font-serif text-bahari-brown mb-6">Unsere Schatzkammer</h3>
-                <p className="text-gray-600 leading-relaxed mb-8 text-lg">
-                    Entdecken Sie in unserer kleinen, feinen Schatzkammer ausgewählte Accessoires, die Ihr Herz höher schlagen lassen. 
-                    Wir legen großen Wert auf Qualität und Herkunft.
-                </p>
-                
-                <ul className="space-y-6">
-                    <li className="flex items-start gap-4">
-                        <div className="bg-white p-3 rounded-full shadow-sm text-bahari-orange">
-                            <SparklesIcon className="w-6 h-6" />
-                        </div>
-                        <div>
-                            <h4 className="text-xl font-serif text-bahari-dark mb-1">Ausgewählte Accessoires</h4>
-                            <p className="text-gray-500 text-sm">Schmuckstücke, Tücher und kleine Geschenke für Sie und Ihre Liebsten.</p>
-                        </div>
-                    </li>
-                    <li className="flex items-start gap-4">
-                        <div className="bg-white p-3 rounded-full shadow-sm text-bahari-green">
-                            <LeafIcon className="w-6 h-6" />
-                        </div>
-                        <div>
-                            <h4 className="text-xl font-serif text-bahari-dark mb-1">Fair Trade</h4>
-                            <p className="text-gray-500 text-sm">Ein Teil unseres Sortiments stammt aus fairem Handel. Schön für Sie, gut für die Welt.</p>
-                        </div>
-                    </li>
-                </ul>
-            </motion.div>
-            
-            <motion.div className="md:w-1/2 relative" variants={itemVariants}>
-                <div className="grid grid-cols-2 gap-4">
-                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=80" alt="Accessoires" className="rounded-lg shadow-lg transform translate-y-8" />
-                    <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=400&q=80" alt="Schmuck" className="rounded-lg shadow-lg transform -translate-y-8" />
+          <motion.div className="md:w-1/2" variants={itemVariants}>
+            <h2 className="text-bahari-orange font-sans text-sm font-bold uppercase tracking-widest mb-2">Boutique</h2>
+            <h3 className="text-4xl md:text-5xl font-serif text-bahari-brown mb-6">Unsere Schatzkammer</h3>
+            <p className="text-bahari-dark/65 leading-relaxed mb-8 text-lg font-sans">
+              Entdecken Sie in unserer kleinen, feinen Schatzkammer ausgewählte Accessoires, die Ihr Herz höher schlagen lassen.
+              Wir legen großen Wert auf Qualität und Herkunft.
+            </p>
+
+            <ul className="space-y-6">
+              <li className="flex items-start gap-4">
+                <SparklesIcon className="text-bahari-orange w-6 h-6 shrink-0 mt-1" />
+                <div>
+                  <h4 className="text-xl font-serif text-bahari-dark mb-1">Ausgewählte Accessoires</h4>
+                  <p className="text-bahari-dark/55 text-sm font-sans">Schmuckstücke, Tücher und kleine Geschenke für Sie und Ihre Liebsten.</p>
                 </div>
-                {/* Decorative circle - adjusted color for light background */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-4 border-bahari-orange/20 rounded-full"></div>
-            </motion.div>
+              </li>
+              <li className="flex items-start gap-4">
+                <LeafIcon className="text-bahari-green w-6 h-6 shrink-0 mt-1" />
+                <div>
+                  <h4 className="text-xl font-serif text-bahari-dark mb-1">Fair Trade</h4>
+                  <p className="text-bahari-dark/55 text-sm font-sans">Ein Teil unseres Sortiments stammt aus fairem Handel. Schön für Sie, gut für die Welt.</p>
+                </div>
+              </li>
+            </ul>
+          </motion.div>
+
+          <motion.div className="md:w-1/2 relative" variants={itemVariants}>
+            <div className="grid grid-cols-2 gap-4">
+              <img
+                src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=80"
+                alt="Accessoires"
+                className="rounded-lg shadow-sm transform translate-y-8"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=400&q=80"
+                alt="Schmuck"
+                className="rounded-lg shadow-sm transform -translate-y-8"
+              />
+            </div>
+          </motion.div>
         </div>
-       </div>
+      </div>
     </motion.section>
   );
 };

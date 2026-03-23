@@ -14,7 +14,7 @@ const App: React.FC = () => {
   const [legalPage, setLegalPage] = useState<'impressum' | 'datenschutz' | null>(null);
 
   return (
-    <div className="min-h-screen bg-white font-sans text-bahari-dark selection:bg-bahari-orange selection:text-white">
+    <div className="min-h-screen font-sans text-bahari-dark selection:bg-bahari-orange selection:text-white">
       <Navigation />
       <main>
         <Hero />

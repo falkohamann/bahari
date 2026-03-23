@@ -64,7 +64,7 @@ const Navigation: React.FC = () => {
           <div className="lg:hidden flex items-center">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md text-bahari-brown"
+              className="p-2 rounded-lg text-bahari-brown"
               whileTap={{ scale: 0.96 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             >
@@ -91,7 +91,7 @@ const Navigation: React.FC = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block px-3 py-4 text-center text-base font-medium text-bahari-dark hover:text-bahari-orange hover:bg-gray-50 rounded-md"
+                  className="block px-3 py-4 text-center text-base font-medium text-bahari-dark hover:text-bahari-orange hover:bg-gray-50 rounded-lg"
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
@@ -103,7 +103,7 @@ const Navigation: React.FC = () => {
                 href={whatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block mt-4 mx-3 py-3 text-center bg-[#25D366] text-white rounded-md font-medium flex justify-center items-center gap-2"
+                className="block mt-4 mx-3 py-3 text-center bg-[#25D366] text-white rounded-full font-medium flex justify-center items-center gap-2"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
