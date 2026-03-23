@@ -26,12 +26,12 @@ const itemVariants = {
 const Gallery: React.FC = () => {
   // Placeholder images
   const images = [
-    "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80",
-    "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=80",
-    "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
-    "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=80",
-    "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80",
-    "https://images.unsplash.com/photo-1583416750470-965b2707b355?w=600&q=80"
+    { src: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80", alt: "Entspannende Spa-Atmosphäre mit Kerzen" },
+    { src: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=80", alt: "Wellness-Behandlung im Kosmetikstudio" },
+    { src: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80", alt: "Gesichtspflege-Behandlung" },
+    { src: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=80", alt: "Kosmetische Produkte und Pflege" },
+    { src: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80", alt: "Entspannende Massagebehandlung" },
+    { src: "https://images.unsplash.com/photo-1583416750470-965b2707b355?w=600&q=80", alt: "Wohlfühlatmosphäre im Studio" },
   ];
 
   return (
@@ -50,9 +50,9 @@ const Gallery: React.FC = () => {
         </motion.div>
 
         <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-            {images.map((src, idx) => (
+            {images.map((image, idx) => (
                 <motion.div key={idx} className="break-inside-avoid rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300" variants={itemVariants}>
-                    <img src={src} alt={`Galerie Bild ${idx + 1}`} className="w-full h-auto hover:scale-105 transition-transform duration-500" />
+                    <img src={image.src} alt={image.alt} loading="lazy" className="w-full h-auto hover:scale-105 transition-transform duration-500" />
                 </motion.div>
             ))}
         </div>

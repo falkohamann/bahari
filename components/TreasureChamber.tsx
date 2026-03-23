@@ -76,12 +76,14 @@ const TreasureChamber: React.FC = () => {
             <div className="grid grid-cols-2 gap-4">
               <img
                 src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=80"
-                alt="Accessoires"
+                alt="Ausgewählte Accessoires in der Schatzkammer"
+                loading="lazy"
                 className="rounded-lg shadow-sm transform translate-y-8"
               />
               <img
                 src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=400&q=80"
-                alt="Schmuck"
+                alt="Fair Trade Schmuck und Accessoires"
+                loading="lazy"
                 className="rounded-lg shadow-sm transform -translate-y-8"
               />
             </div>

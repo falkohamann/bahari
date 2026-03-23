@@ -50,7 +50,8 @@ const ServiceMenu: React.FC = () => {
               <div className="aspect-[4/3] overflow-hidden rounded-xl">
                 <img
                   src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&q=80"
-                  alt="Zen Stone Atmosphere"
+                  alt="Zen Atmosphäre für asiatische Balance Massage"
+                  loading="lazy"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>

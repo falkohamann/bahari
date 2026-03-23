@@ -88,7 +88,8 @@ const AboutUs: React.FC = () => {
               <div className="relative aspect-[3/4] mb-5 overflow-hidden rounded-xl">
                 <img
                   src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80"
-                  alt="Nadin Kästner"
+                  alt="Nadin Kästner — Inhaberin Bahari Kosmetikstudio"
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-bahari-brown/10 group-hover:bg-transparent transition-colors"></div>
@@ -101,7 +102,8 @@ const AboutUs: React.FC = () => {
               <div className="relative aspect-[3/4] mb-5 overflow-hidden rounded-xl">
                 <img
                   src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80"
-                  alt="Mitarbeiterin"
+                  alt="Kosmetikerin im Bahari Kosmetikstudio"
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-bahari-brown/10 group-hover:bg-transparent transition-colors"></div>
@@ -114,7 +116,8 @@ const AboutUs: React.FC = () => {
               <div className="relative aspect-[3/4] mb-5 overflow-hidden rounded-xl">
                 <img
                   src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80"
-                  alt="Mitarbeiterin"
+                  alt="Kosmetikerin im Bahari Kosmetikstudio"
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-bahari-brown/10 group-hover:bg-transparent transition-colors"></div>

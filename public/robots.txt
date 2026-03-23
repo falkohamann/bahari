@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bahari-kosmetik.de/dev/sitemap.xml
