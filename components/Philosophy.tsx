@@ -80,7 +80,7 @@ const Philosophy: React.FC = () => {
 
           {/* Asian Side */}
           <motion.div
-            className="bg-bahari-green/15 px-10 py-12 md:px-14 md:py-16"
+            className="bg-bahari-green/20 px-10 py-12 md:px-14 md:py-16 border-t-2 border-bahari-green/30 md:border-t-0 md:border-l-2 md:border-bahari-green/20"
             variants={rightPanelVariants}
           >
             <LeafIcon className="text-bahari-green w-8 h-8 mb-6" />

@@ -64,9 +64,11 @@ const Navigation: React.FC = () => {
           <div className="lg:hidden flex items-center">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-bahari-brown"
+              className="p-2 rounded-lg text-bahari-brown focus:outline-none focus:ring-2 focus:ring-bahari-orange focus:ring-offset-2"
               whileTap={{ scale: 0.96 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              aria-label={isOpen ? 'Menü schließen' : 'Menü öffnen'}
+              aria-expanded={isOpen}
             >
               {isOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}
             </motion.button>

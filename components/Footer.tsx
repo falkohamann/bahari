@@ -22,15 +22,15 @@ const Footer: React.FC<FooterProps> = ({ onOpenImpressum, onOpenDatenschutz }) =
           &copy; {new Date().getFullYear()} {CONTACT_INFO.owner}. Alle Rechte vorbehalten.
         </div>
         <div className="flex gap-6">
-          <button 
-            onClick={onOpenImpressum} 
-            className="hover:text-white transition-colors focus:outline-none focus:text-white"
+          <button
+            onClick={onOpenImpressum}
+            className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-bahari-orange rounded"
           >
             Impressum
           </button>
-          <button 
-            onClick={onOpenDatenschutz} 
-            className="hover:text-white transition-colors focus:outline-none focus:text-white"
+          <button
+            onClick={onOpenDatenschutz}
+            className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-bahari-orange rounded"
           >
             Datenschutz
           </button>

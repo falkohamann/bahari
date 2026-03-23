@@ -128,7 +128,7 @@ const ContactSection: React.FC = () => {
                 <p className="font-semibold text-bahari-brown mt-2">{CONTACT_INFO.phone}</p>
               </div>
             ) : status === 'success' ? (
-              <div className="py-8 text-center">
+              <div className="py-8 text-center" role="status" aria-live="polite">
                 <p className="text-2xl mb-2">✓</p>
                 <p className="text-bahari-brown font-serif text-xl mb-2">Vielen Dank!</p>
                 <p className="text-bahari-dark/60 font-sans">Wir melden uns bald.</p>
@@ -152,26 +152,26 @@ const ContactSection: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-bahari-dark mb-1">Name</label>
-                    <input type="text" id="name" name="name" className="w-full px-4 py-3 bg-white border border-bahari-sand rounded-lg focus:border-bahari-orange focus:ring-1 focus:ring-bahari-orange outline-none transition-colors font-sans" placeholder="Ihr Name" />
+                    <input type="text" id="name" name="name" required aria-required="true" className="w-full px-4 py-3 bg-white border border-bahari-sand rounded-lg focus:border-bahari-orange focus:ring-2 focus:ring-bahari-orange outline-none transition-colors font-sans" placeholder="Ihr Name" />
                   </div>
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-bahari-dark mb-1">Telefon</label>
-                    <input type="tel" id="phone" name="phone" className="w-full px-4 py-3 bg-white border border-bahari-sand rounded-lg focus:border-bahari-orange focus:ring-1 focus:ring-bahari-orange outline-none transition-colors font-sans" placeholder="Ihre Nummer" />
+                    <input type="tel" id="phone" name="phone" className="w-full px-4 py-3 bg-white border border-bahari-sand rounded-lg focus:border-bahari-orange focus:ring-2 focus:ring-bahari-orange outline-none transition-colors font-sans" placeholder="Ihre Nummer" />
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-bahari-dark mb-1">E-Mail</label>
-                  <input type="email" id="email" name="email" className="w-full px-4 py-3 bg-white border border-bahari-sand rounded-lg focus:border-bahari-orange focus:ring-1 focus:ring-bahari-orange outline-none transition-colors font-sans" placeholder="ihre.email@beispiel.de" />
+                  <input type="email" id="email" name="email" required aria-required="true" className="w-full px-4 py-3 bg-white border border-bahari-sand rounded-lg focus:border-bahari-orange focus:ring-2 focus:ring-bahari-orange outline-none transition-colors font-sans" placeholder="ihre.email@beispiel.de" />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-bahari-dark mb-1">Nachricht</label>
-                  <textarea id="message" name="message" rows={4} className="w-full px-4 py-3 bg-white border border-bahari-sand rounded-lg focus:border-bahari-orange focus:ring-1 focus:ring-bahari-orange outline-none transition-colors font-sans" placeholder="Wie können wir Ihnen helfen?"></textarea>
+                  <textarea id="message" name="message" rows={4} required aria-required="true" className="w-full px-4 py-3 bg-white border border-bahari-sand rounded-lg focus:border-bahari-orange focus:ring-2 focus:ring-bahari-orange outline-none transition-colors font-sans" placeholder="Wie können wir Ihnen helfen?"></textarea>
                 </div>
 
                 {status === 'error' && (
-                  <p className="text-red-600 text-sm font-sans">Etwas ist schiefgelaufen. Bitte rufen Sie uns an.</p>
+                  <p role="alert" className="text-red-600 text-sm font-sans">Etwas ist schiefgelaufen. Bitte rufen Sie uns an.</p>
                 )}
 
                 <button
