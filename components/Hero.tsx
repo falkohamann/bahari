@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { EASE_OUT_EXPO } from '../motion';
+import { IMAGES } from '../images';
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const shouldReduceMotion = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -15,8 +16,6 @@ const Hero: React.FC = () => {
   const smoothScale = useSpring(scaleOnScroll, { stiffness: 90, damping: 22, mass: 0.6 });
   const smoothY = useSpring(yOnScroll, { stiffness: 90, damping: 22, mass: 0.6 });
 
-  const ease = [0.22, 1, 0.36, 1] as const;
-
   return (
     <div
       id="home"
@@ -27,16 +26,16 @@ const Hero: React.FC = () => {
       <motion.div
         className="absolute inset-0 z-0 will-change-transform"
         style={{
-          scale: shouldReduceMotion ? 1 : smoothScale,
-          y: shouldReduceMotion ? 0 : smoothY,
-          backgroundImage: `url(https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1600&q=85)`,
+          scale: smoothScale,
+          y: smoothY,
+          backgroundImage: `url(${IMAGES.hero})`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
         }}
       />
 
-      {/* Directional gradient overlay — bottom-left weighted, creates depth */}
+      {/* Directional gradient overlay */}
       <div
         className="absolute inset-0 z-10"
         style={{
@@ -50,7 +49,7 @@ const Hero: React.FC = () => {
           className="text-white/65 font-sans text-xs sm:text-sm uppercase tracking-[0.28em] mb-4"
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, ease, delay: 0.15 }}
+          transition={{ duration: 0.85, ease: EASE_OUT_EXPO, delay: 0.15 }}
         >
           Kosmetikstudio · Dippoldiswalde
         </motion.p>
@@ -59,7 +58,7 @@ const Hero: React.FC = () => {
           className="font-script text-7xl sm:text-8xl md:text-9xl text-white leading-none mb-5"
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, ease, delay: 0.05 }}
+          transition={{ duration: 1.1, ease: EASE_OUT_EXPO, delay: 0.05 }}
         >
           Bahari
         </motion.h1>
@@ -68,7 +67,7 @@ const Hero: React.FC = () => {
           className="text-white/80 font-serif italic text-xl sm:text-2xl mb-9 leading-snug"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease, delay: 0.3 }}
+          transition={{ duration: 0.9, ease: EASE_OUT_EXPO, delay: 0.3 }}
         >
           Äußerlich strahlen, innerlich leuchten.
         </motion.p>
@@ -77,7 +76,7 @@ const Hero: React.FC = () => {
           className="flex flex-wrap gap-4"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease, delay: 0.5 }}
+          transition={{ duration: 0.8, ease: EASE_OUT_EXPO, delay: 0.5 }}
         >
           <a
             href="#leistungen"

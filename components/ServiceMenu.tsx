@@ -1,28 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SERVICES } from '../constants';
-
-const sectionVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1],
-      staggerChildren: 0.04,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-  },
-};
+import { sectionVariants, itemVariants } from '../motion';
+import { SparklesIcon } from './icons';
+import { IMAGES } from '../images';
 
 const ServiceMenu: React.FC = () => {
   const asianServices = SERVICES.find(s => s.theme === 'asian');
@@ -38,18 +19,18 @@ const ServiceMenu: React.FC = () => {
       variants={sectionVariants}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div className="text-center mb-20" variants={cardVariants}>
+        <motion.div className="text-center mb-20" variants={itemVariants}>
           <h2 className="text-bahari-orange font-sans text-sm font-bold uppercase tracking-widest mb-2">Unser Angebot</h2>
           <h3 className="text-5xl md:text-6xl font-serif text-bahari-brown">Behandlungen & Preise</h3>
         </motion.div>
 
-        {/* Special Feature: Asian Balance — no card wrapper */}
+        {/* Special Feature: Asian Balance */}
         {asianServices && (
-          <motion.div className="mb-24 lg:flex lg:gap-16 items-start" variants={cardVariants}>
+          <motion.div className="mb-24 lg:flex lg:gap-16 items-start" variants={itemVariants}>
             <div className="lg:w-1/2 mb-8 lg:mb-0">
               <div className="aspect-[4/3] overflow-hidden rounded-xl">
                 <img
-                  src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&q=80"
+                  src={IMAGES.serviceAsian}
                   alt="Zen Atmosphäre für asiatische Balance Massage"
                   loading="lazy"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
@@ -74,19 +55,16 @@ const ServiceMenu: React.FC = () => {
           </motion.div>
         )}
 
-        {/* Other Services Grid — flat, separated by dividers */}
+        {/* Other Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-0">
           {otherServices.map((category, idx) => (
             <motion.div
               key={idx}
               className="pb-12 pt-12 border-t border-bahari-sand first:pt-0 first:border-t-0 [&:nth-child(2)]:pt-0 [&:nth-child(2)]:border-t-0"
-              variants={cardVariants}
+              variants={itemVariants}
             >
               <div className="mb-8 flex items-center gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-bahari-orange shrink-0">
-                  <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-                  <path d="M5 3v4"/><path d="M9 3v4"/><path d="M3 9h4"/><path d="M3 5h4"/>
-                </svg>
+                <SparklesIcon className="text-bahari-orange shrink-0" size={20} />
                 <div>
                   <h4 className="text-3xl font-serif text-bahari-brown">{category.title}</h4>
                   {category.subtitle && <p className="text-bahari-orange font-script text-2xl">{category.subtitle}</p>}

@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CONTACT_INFO } from '../constants';
-
-const XIcon = ({ size = 24, className = "" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-);
+import { EASE_OUT_EXPO } from '../motion';
+import { XIcon } from './icons';
 
 interface LegalModalProps {
   isOpen: boolean;
@@ -13,16 +11,9 @@ interface LegalModalProps {
 }
 
 const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose }) => {
-  // Prevent background scrolling when modal is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
+    document.body.style.overflow = isOpen ? 'hidden' : 'unset';
+    return () => { document.body.style.overflow = 'unset'; };
   }, [isOpen]);
 
   return (
@@ -33,7 +24,7 @@ const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.25, ease: EASE_OUT_EXPO }}
         >
           {/* Backdrop */}
           <motion.div
@@ -43,8 +34,8 @@ const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          ></motion.div>
+            transition={{ duration: 0.3, ease: EASE_OUT_EXPO }}
+          />
 
           {/* Modal Content */}
           <motion.div
@@ -54,7 +45,7 @@ const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose }) => {
             initial={{ opacity: 0, y: 16, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.98 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.35, ease: EASE_OUT_EXPO }}
           >
             <div className="flex justify-between items-center p-6 border-b border-gray-100 sticky top-0 bg-white z-10 rounded-t-xl">
               <h2 className="text-2xl font-serif text-bahari-brown">

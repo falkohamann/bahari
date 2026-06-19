@@ -1,35 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
-const SparklesIcon = ({ className = "" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M9 3v4"/><path d="M3 9h4"/><path d="M3 5h4"/></svg>
-);
-
-const LeafIcon = ({ className = "" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-);
-
-const sectionVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1],
-      staggerChildren: 0.04,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-  },
-};
+import { sectionVariants, itemVariants } from '../motion';
+import { SparklesIcon, LeafIcon } from './icons';
+import { IMAGES } from '../images';
 
 const TreasureChamber: React.FC = () => {
   return (
@@ -41,7 +14,7 @@ const TreasureChamber: React.FC = () => {
       viewport={{ once: true, amount: 0.05 }}
       variants={sectionVariants}
     >
-      {/* Background texture — satisfies no-flat-background rule */}
+      {/* Background texture */}
       <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -75,13 +48,13 @@ const TreasureChamber: React.FC = () => {
           <motion.div className="md:w-1/2 relative" variants={itemVariants}>
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=80"
+                src={IMAGES.treasureChamber.left}
                 alt="Ausgewählte Accessoires in der Schatzkammer"
                 loading="lazy"
                 className="rounded-lg shadow-sm transform translate-y-8"
               />
               <img
-                src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=400&q=80"
+                src={IMAGES.treasureChamber.right}
                 alt="Fair Trade Schmuck und Accessoires"
                 loading="lazy"
                 className="rounded-lg shadow-sm transform -translate-y-8"

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { MotionConfig } from 'framer-motion';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Philosophy from './components/Philosophy';
@@ -14,27 +15,29 @@ const App: React.FC = () => {
   const [legalPage, setLegalPage] = useState<'impressum' | 'datenschutz' | null>(null);
 
   return (
-    <div className="min-h-screen font-sans text-bahari-dark selection:bg-bahari-orange selection:text-white">
-      <Navigation />
-      <main>
-        <Hero />
-        <Philosophy />
-        <ServiceMenu />
-        <TreasureChamber />
-        <AboutUs />
-        <Gallery />
-        <ContactSection />
-      </main>
-      <Footer 
-        onOpenImpressum={() => setLegalPage('impressum')}
-        onOpenDatenschutz={() => setLegalPage('datenschutz')}
-      />
-      <LegalModal 
-        isOpen={!!legalPage} 
-        type={legalPage} 
-        onClose={() => setLegalPage(null)} 
-      />
-    </div>
+    <MotionConfig reducedMotion="user">
+      <div className="min-h-screen font-sans text-bahari-dark selection:bg-bahari-orange selection:text-white">
+        <Navigation />
+        <main>
+          <Hero />
+          <Philosophy />
+          <ServiceMenu />
+          <TreasureChamber />
+          <AboutUs />
+          <Gallery />
+          <ContactSection />
+        </main>
+        <Footer 
+          onOpenImpressum={() => setLegalPage('impressum')}
+          onOpenDatenschutz={() => setLegalPage('datenschutz')}
+        />
+        <LegalModal 
+          isOpen={!!legalPage} 
+          type={legalPage} 
+          onClose={() => setLegalPage(null)} 
+        />
+      </div>
+    </MotionConfig>
   );
 };
 
